@@ -41,8 +41,12 @@ const userSchema = new Schema({
         
     },
     isSeller: {
-        type:String,
+        type:Boolean,
         default: false
         
     },
+}, {
+    timestamps: true
 })
+
+export default mongoose.model("User", userSchema);
