@@ -19,6 +19,12 @@ function Navbar() {
             window.removeEventListener('scroll', isActive)
         }
     },[])
+
+   const currentUser = {
+        id:1,
+        username: "Amelia Swift",
+        isSeller: true,
+   }
   return (
     <div className={active ? "navbar active" : "navbar" }>
         <div className="container">
@@ -32,9 +38,29 @@ function Navbar() {
                 <span>Fiverr Business</span>
                 <span>Explore</span>
                 <span>English</span>
-                <span>Become a Seller</span>
                 <span>Sign in</span>
-                <button>Join</button>
+                {/* if currentUser exist and the value of isSeller is true then show the span */}
+                {/* This is the mini-menu */}
+                { !currentUser?.isSeller && <span>Become a Seller</span>}
+                
+                {currentUser && <button>Join</button>}
+                {currentUser && (
+                    <div className="user">
+                        <img src="" alt="" />
+                        <span>{currentUser.username}</span>
+                        <div className="options">
+                            {
+                                currentUser?.isSeller && (
+                                    <>
+                                    <span>Gigs</span>
+                                    <span>Add New Gig</span>
+                                    </>
+                                )
+                            }
+                            <span>Order</span>
+                        </div>
+                    </div>
+                )}
             </div>
             
         </div>
