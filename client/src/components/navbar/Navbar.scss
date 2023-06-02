@@ -6,6 +6,7 @@
     color: white;
     transition: 0.5s all ease;
     position: sticky;
+    z-index: 999;
     top: 0;
 
     &.active {
@@ -22,7 +23,11 @@
             font-size: 34px;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
-            .text {}
+        
+            .text {
+                
+
+            }
             .dot {
                 color: #1dbf73;
             }
@@ -33,6 +38,36 @@
             gap: 24px;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
+
+            .user {
+               display: flex;
+               align-items: center;
+               gap: 10px;
+               cursor: pointer;
+               position: relative;
+
+               img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                object-fit: cover;
+               }
+
+               .options {
+                position: absolute;
+                top: 50px;
+                right: 0;
+                padding: 20px;
+                background-color: #fff;
+                //border: 10px;
+                border: 1px solid lightgray;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                z-index: 999;
+               }
+            }
 
             button {
                 color: white;
@@ -67,5 +102,6 @@
         font-weight: 300;
         color: gray;
         font-family: 'Montserrat', sans-serif;
+        
     }
 }
