@@ -2,61 +2,85 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Navbar from './components/navbar/Navbar'
+import Gigs from './pages/gigs/Gigs'
+import Gig from './pages/gig/Gig'
+import MyGigs from './pages/myGigs/MyGigs'
+import Order from './pages/orders/Order'
+import Add from './pages/add/Add'
+import Messages from './pages/messages/Messages'
+import Message from './pages/message/Message'
+import Footer from './components/footer/Footer'
+import Home from './pages/home/Home'
+import { Outlet } from 'react-router-dom'
+import app from './App.scss'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const Layout = () => {
+    return (
+      <div className="app">
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+      </div>
+      
+    );
+  };
+
+  const router = createBrowserRouter([
+
+    {
+      path: "/",
+      element: <Layout/>,
+      children:[
+        {
+          path : "/",
+          element : <Home/>
+        },
+        {
+          path : "/gigs",
+          element : <Gigs/>
+        },
+        {
+          path : "/gig",
+          element : <Gig/>
+        },
+        {
+          path : "/orders",
+          element : <Order/>
+        },
+        {
+          path : "/mygigs",
+          element : <MyGigs/>
+        },
+        {
+          path : "/add",
+          element : <Add/>
+        },
+        {
+          path : "/messages",
+          element : <Messages/>
+        },{
+          path : "/message",
+          element : <Message/>
+        },
+      ]
+    }
+  ])
+  
 
   return (
     <div>
-      <Navbar/>
-      <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit nobis, in magnam eaque accusamus dicta, quia maiores perspiciatis quo, et doloremque saepe soluta 
-        quis sed voluptatem. Quaerat, voluptatem tempora
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ex illum iste laudantium ullam eaque adipisci facere perspiciatis inventore. Blanditiis perferendis unde 
-        doloremque commodi quia ratione id vel rerum nihil!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum quam nisi porro consectetur veniam iusto? Accusamus libero vitae, assumenda reiciendis provident adipisci 
-        recusandae voluptate rem voluptatem, esse vero sint.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora exercitationem odit suscipit. Nesciunt repellat debitis quibusdam est sapiente ipsa, atque recusandae earum modi 
-        ut doloribus architecto cupiditate! Porro, quasi iure!
-        .</h1>
-        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit nobis, in magnam eaque accusamus dicta, quia maiores perspiciatis quo, et doloremque saepe soluta 
-        quis sed voluptatem. Quaerat, voluptatem tempora
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ex illum iste laudantium ullam eaque adipisci facere perspiciatis inventore. Blanditiis perferendis unde 
-        doloremque commodi quia ratione id vel rerum nihil!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum quam nisi porro consectetur veniam iusto? Accusamus libero vitae, assumenda reiciendis provident adipisci 
-        recusandae voluptate rem voluptatem, esse vero sint.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora exercitationem odit suscipit. Nesciunt repellat debitis quibusdam est sapiente ipsa, atque recusandae earum modi 
-        ut doloribus architecto cupiditate! Porro, quasi iure!
-        .</h1>
-        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit nobis, in magnam eaque accusamus dicta, quia maiores perspiciatis quo, et doloremque saepe soluta 
-        quis sed voluptatem. Quaerat, voluptatem tempora
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ex illum iste laudantium ullam eaque adipisci facere perspiciatis inventore. Blanditiis perferendis unde 
-        doloremque commodi quia ratione id vel rerum nihil!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum quam nisi porro consectetur veniam iusto? Accusamus libero vitae, assumenda reiciendis provident adipisci 
-        recusandae voluptate rem voluptatem, esse vero sint.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora exercitationem odit suscipit. Nesciunt repellat debitis quibusdam est sapiente ipsa, atque recusandae earum modi 
-        ut doloribus architecto cupiditate! Porro, quasi iure!
-        .</h1>
-        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit nobis, in magnam eaque accusamus dicta, quia maiores perspiciatis quo, et doloremque saepe soluta 
-        quis sed voluptatem. Quaerat, voluptatem tempora
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ex illum iste laudantium ullam eaque adipisci facere perspiciatis inventore. Blanditiis perferendis unde 
-        doloremque commodi quia ratione id vel rerum nihil!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum quam nisi porro consectetur veniam iusto? Accusamus libero vitae, assumenda reiciendis provident adipisci 
-        recusandae voluptate rem voluptatem, esse vero sint.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora exercitationem odit suscipit. Nesciunt repellat debitis quibusdam est sapiente ipsa, atque recusandae earum modi 
-        ut doloribus architecto cupiditate! Porro, quasi iure!
-        .</h1>
-        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit nobis, in magnam eaque accusamus dicta, quia maiores perspiciatis quo, et doloremque saepe soluta 
-        quis sed voluptatem. Quaerat, voluptatem tempora
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ex illum iste laudantium ullam eaque adipisci facere perspiciatis inventore. Blanditiis perferendis unde 
-        doloremque commodi quia ratione id vel rerum nihil!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illum quam nisi porro consectetur veniam iusto? Accusamus libero vitae, assumenda reiciendis provident adipisci 
-        recusandae voluptate rem voluptatem, esse vero sint.
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora exercitationem odit suscipit. Nesciunt repellat debitis quibusdam est sapiente ipsa, atque recusandae earum modi 
-        ut doloribus architecto cupiditate! Porro, quasi iure!
-        .</h1>
+      <RouterProvider router={router}/>
     </div>
   )
 }
 
-export default App
+export default App;
+
